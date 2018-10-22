@@ -1,0 +1,41 @@
+body{
+    background-color: lavender;
+}
+.wrap{
+    width: 1900px;
+    padding: 10px;
+}
+.main{
+    border: 2px solid black;
+    display: inline-block;
+    width: 1000px;
+}
+.right{
+    display: inline-block;
+    width: 500px;
+    margin-left: 200px;
+}
+.head h1{
+    display: inline-block;
+    vertical-align: top;
+}
+.topright{
+    margin-left: 1200px;
+    font-size: 40px;
+}
+.logout{
+    font-size: 40px;
+    margin-left: 20px;
+}
+ul{
+    list-style: none;
+    color: red;
+}
+input{
+    margin-left: 50px;
+}
+p{
+    margin: 40px 0px;
+    font-size: 30px;
+}
+

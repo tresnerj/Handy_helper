@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Handy Helper Dashboard</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'jobs/css/style.css' %}">
+
+
+    </head>
+    <body>
+        <div class='wrap'>
+            <div class='head'>
+                <h1>Welcome {{user.name}}! <a href='/logout'>Logout</a></h1>
+                <a class='topright' href='addJob'>Add a Job</a>
+            </div>
+            <div class='main'>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for job in user_jobs %}
+                        {% if job.assigned == 'no' %}
+                            <tr>
+                                <th scope="row">{{ job.title }}</th>
+                                <td>{{ job.location }}</td>
+                                <td><a href='view/{{job.id}}'>View</a> <a href='getJob/{{job.id}}'>Add</a> <a href='edit/{{job.id}}'>edit</a> <a href='delete/{{job.id}}'>cancel</a></td>
+                            </tr>
+                        {% endif %}
+                        {% endfor %}
+                        {% for job in all_jobs %}
+                        {% if job.assigned == 'no' %}
+
+
+                            <tr>
+                                <th scope="row">{{ job.title }}</th>
+                                <td>{{ job.location }}</td>
+                                <td><a href='view/{{job.id}}'>View</a><a href='getJob/{{job.id}}'>Add</a></td>
+                            </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class='right'>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">My Jobs</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for job in my_jobs %}
+                            <tr>
+                                <td scope="row">{{ job.title }}</td>
+                                <td scope="row"><a href='/view/{{job.orig_id}}'>View</a> <a href='done/{{job.id}}'>Done</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

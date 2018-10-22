@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Add A Job</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'jobs/css/style.css' %}">
+
+    </head>
+    <body>
+        <div class='wrap'>
+            <div class='head'>
+                <h1>Add a Job</h1>
+                <a class='topright' href='/dashboard'>Back</a>
+                <a class ='logout' href='/logout'>Logout</a>
+            </div>
+            <div class='main'>
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}                
+                <form action='/add' method='POST'>
+                {% csrf_token %}
+                    <p>Title:<input type='text' name='title'></p>
+                    <p>Description: <textarea name='desc' rows="4" cols="50"></textarea></p>
+                    <p>Location: <input type='text' name='location'><p>
+                    <button type='submit' class='btn btn-success'>Submit</button>
+                </form>    
+            </div>
+        </div>
+    </body>
+</html>

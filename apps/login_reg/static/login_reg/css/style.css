@@ -1,0 +1,37 @@
+body{
+    background-color: lavender;
+}
+.wrap{
+    width: 1900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+
+}
+.wrap div{
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    margin: 10px 70px;
+    width: 700px;
+    text-align: left;
+}
+button{
+    width: 100px;
+    height: 55px;
+}
+p{
+    margin: 40px 0px;
+    font-size: 30px;
+}
+h1{
+    font-size: 50px;
+    color: rgb(0, 133, 29);
+}
+ul{
+    list-style: none;
+    color: red;
+}
+input{
+    margin-left: 30px;
+}
